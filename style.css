@@ -1,0 +1,63 @@
+body{
+    background-color: Beige ;
+}
+.panel-heading
+{
+    background-color:   #E1344E !important;
+    
+}
+.btn-primary
+{
+    background-color:   #E1344E !important;
+    border: 1px solid black;
+    
+}
+.panel
+{
+    border: 1px solid black;
+    
+}
+.panel-body
+{
+    background-color:   #ffe6b3    !important;
+}
+span
+{
+    font-family: Trebuchet MS;
+    font-size: 45px !important;
+}
+.table
+{
+    width:100% !important;
+}
+th:nth-child(even)
+{
+    background-color: rgba(102, 95, 95, 0.555);
+    border: 1px solid black !important; 
+}
+th:nth-child(odd)
+{
+    background-color: rgba(214, 31, 40, 0.822);
+    border: 1px solid black !important;
+
+}
+td
+{
+    border: 1px solid black !important;
+    border-top: 1px solid black !important;    
+}
+.submit
+{
+    align-content: right;
+}
+
+.modal-header, .close
+{
+    background-color: #5cb85c;
+    color:white !important;
+    font-size: 10px;
+    padding:10px
+}
+.modal-footer {
+    background-color: #f9f9f9;
+}
