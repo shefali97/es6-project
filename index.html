@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+            <div class="panel panel-primary">
+                    <div class="panel-heading text-center"><h1><span>Student Details</span></h1></div>
+                    <div class="panel-body text-center">
+                        <div class="row">
+                           <form class="form-inline" action="javascript:insertData();"  name="student_data" id="form">
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text"  name="name" class="form-control" id="name"  pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" title="Please enter string only atleast 3 characters" placeholder="name" required>
+                                </div>
+                                <div class="form-group">                                        
+                                    <label for="rollno">Roll no:</label>
+                                    <input type="text"  name="rollno" class="form-control" id="rollno"  pattern="[0-9]{3}" title="Three digit roll number" placeholder="rollno" required>
+                                </div>
+                                <div class="form-group">                                        
+                                    <label for="sel1">Stream:</label>
+                                    <select class="form-control" name="sel1" id="sel1">
+                                        <option disabled selected value> -- select an option -- </option>                                            
+                                        <option>CSE</option>
+                                        <option>ECE</option>
+                                        <option>ME</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">                                        
+                                    <label for="year">Passout Year:</label> 
+                                    <input type="text" name="year" class="form-control" id="year" pattern="[0-9]{4}" title="Four digit year"  placeholder="passout year" required>                                    
+                                </div>
+                                    <div class="row">
+                                            <br>                                            
+                                            <div class="btn-group btn-group-lg">
+                                                <button type="submit" id="add" class="btn btn-primary 	glyphicon glyphicon-plus"> Add</button>
+                                                <button type="button" class="btn btn-primary glyphicon glyphicon-pencil" id="edit" onclick=" editData()"  > Edit</button>
+                                                <button type="button" onclick="deleteData()" class="btn btn-primary    glyphicon glyphicon-trash"> Delete</button>     
+                                            </div>
+                                    </div>
+                                </div>
+                           </form>
+                        </div>
+                        
+                    </div>
+            </div>   
+            <div class="table-responsive text-center">
+                 <table class="table table-hover" id="table1" name="table1">
+                     <thead>
+                         <tr class="tr">
+                             <th>#</th>
+                             <th>Name</th>
+                             <th>Roll Number</th>
+                             <th>Stream</th>
+                             <th>Passout Year</th>
+                         </tr>
+                     </thead>
+                     <tbody id="tb">
+
+                     </tbody>
+                </table>
+           </div>  
+           <div id="demo">
+
+           </div>
+    </div>
+    <div class="container">
+    <div>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                            <h4 class="modal-title text-center">Edit Details</h4>
+                    </div>
+                <div class="modal-body">
+                    <form class="form-inline"  name="student_data" id="form1">
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" class="form-control" id="name1" required/><br>
+                            <label for="rollno">Roll no:</label>
+                            <input type="text" name="rollno" class="form-control" id="rollno1" required/><br>
+                            <label for="sel1">Stream:</label>
+                            <select class="form-control" name="sel2" id="sel2" required>
+                                    <option disabled selected value> -- select an option -- </option>                                    
+                                    <option>CSE</option>
+                                    <option>ECE</option>
+                                    <option>ME</option>
+                            </select><br>
+                            <label for="year">Passout Year:</label> 
+                            <input type="text" name="year" class="form-control" id="year1" required/>  <br>                                  
+                    </form>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" id="btn1" data-dismiss="modal">submit</button>
+                  
+                </div>
+            </div>
+              
+        </div>
+    </div>        
+    </div>
+    <div class="container">
+        <div>
+            <div class="modal fade" id="myModal1" role="dialog">
+                <div class="modal-dialog">
+                  <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header text-center">
+                                <div>
+                                    <h1>More than 1 row selected!</h1>
+                                </div>
+                        </div>
+                    <div class="modal-body">
+                       
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>     
+            </div>
+        </div>        
+    </div>
+    <div class="container">
+            <div>
+                <div class="modal fade" id="myModal2" role="dialog">
+                    <div class="modal-dialog">
+                      <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header text-center">
+                                    <div>
+                                        <h1>No row selected!</h1>
+                                    </div>
+                            </div>
+                        <div class="modal-body">
+                           
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          
+                        </div>
+                    </div>     
+                </div>
+            </div>        
+    </div>
+</body>
+</html>
